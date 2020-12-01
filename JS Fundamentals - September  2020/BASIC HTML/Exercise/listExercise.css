@@ -1,0 +1,37 @@
+header {
+    width: 30%;
+}
+
+
+header h1{
+    color: blue;
+}
+
+header p{
+    color: blueviolet;
+}
+
+
+header p span{
+    border-style: dotted;
+    color: darkcyan;
+}
+
+main {
+    width: 30%;
+}
+
+#img1 {
+    width: 30%;
+}
+
+main li{
+    border-style: solid;
+    color: yellow;
+}
+
+main ul{
+    border-style: solid;
+    color: yellow;
+}
+
