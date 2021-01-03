@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Web Page</title>
+</head>
+<body>
+    <h1>Introduction to DOM</h1>
+    <ul>
+        <li id="first-li" class="li-element">First element</li>
+        <li class="li-element">Second element</li>
+    </ul>
+    
+
+    <script>
+       let firstLiElement = document.getElementById("first-li");
+       let valueOfFirstLi = firstLiElement.value;
+       let getLiValue = valueOfFirstLi.value;
+       firstLiElement.classList.add("test")
+       let ulElements = document.getElementsByTagName("ul")[0];
+       
+       
+    </script>
+</body>
+</html>
