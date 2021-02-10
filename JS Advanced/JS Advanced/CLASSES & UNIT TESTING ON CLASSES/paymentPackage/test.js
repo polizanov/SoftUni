@@ -65,7 +65,5 @@ describe("Payment Package functionality", () => {
         assert.equal(testObj.toString(), getOutput("Pesho", 77, 80, false));
         testObj.name = 'Darin';
         assert.equal(testObj.toString(), getOutput("Darin", 77, 80, false));
-
-
     });
 })
