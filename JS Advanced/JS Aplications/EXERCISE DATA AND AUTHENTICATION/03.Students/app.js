@@ -1,5 +1,3 @@
-// Колега, формата в html-a я писах на ръка понеже не бе сложена в скелета когато решавах задачите.
-
 function students() {
     displayStudents()
     document.querySelector("form")
