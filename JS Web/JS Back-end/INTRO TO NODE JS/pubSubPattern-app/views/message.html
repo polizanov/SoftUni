@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>CONGRATULATIONS!</h1>
+        <h2>YOUR REQUEST HAS SUCCESFULLY SENT</h2>
+        <img src="https://bananabearbooks.com/wp-content/uploads/2019/07/dancing-gorilla-anna-lubecka.jpg" alt="happy-logo">
+        <br>
+        <br>
+        <button>Go home</button>
+    </div>
+</body>
+<script>
+     document.querySelector(".wrapper")
+        .addEventListener("click", (e) => {
+            if(e.target.tagName == "BUTTON" && e.target.textContent == "Go home"){
+                window.location.pathname = "/home"
+            }
+        })
+</script>
+
+<style>
+    .wrapper h1, h2 {
+        text-align: center;
+        color: rgb(20, 1, 44);
+    }
+
+    .wrapper {
+        margin: auto;
+        width: 50%;
+        border: 3px solid rgb(99, 0, 129);
+        padding: 10px;
+    }
+
+    .wrapper img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        border: 3px solid rgb(248, 248, 248);
+        padding: 10px;
+    }
+
+    .wrapper button {
+        background-color: rgb(93, 39, 163);
+        border-width: thin;
+        border-radius: 3%;
+        color: white;
+        cursor: pointer;
+        text-align: center;
+        margin: 0 37.5% 0 37.5%;
+        width: 220px;
+        height: 35px;
+    }
+
+    .wrapper button:hover {
+        background-color: white;
+        border-width: thin;
+        border-radius: 3%;
+        color: rgb(93, 39, 163);
+        cursor: pointer;
+    }
+</style>
+</html>

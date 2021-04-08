@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It Shop</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>WELLCOME TO THE <span>IT SHOP</span></h1>
+        <img src="https://i.pinimg.com/originals/bc/41/ba/bc41bad7d67bccf8d294eeb81396a58e.jpg" alt="logo-img">
+        <br>
+        <button>Add Product</button>
+        <button>Remove Product</button>
+    </div>
+
+    <script>
+        document.querySelector(".wrapper")
+            .addEventListener("click", (e) => {
+                if (e.target.tagName == "BUTTON" && e.target.textContent == "Add Product") {
+                    window.location.pathname = "/add-product"
+                }
+
+                if (e.target.tagName == "BUTTON" && e.target.textContent == "Remove Product") {
+                    window.location.pathname = "/remove-product"
+                }
+            })
+    </script>
+
+    <style>
+        span {
+            color: rgb(71, 145, 255);
+        }
+
+        .wrapper h1 {
+            text-align: center;
+        }
+
+        .wrapper {
+            margin: auto;
+            width: 50%;
+            border: 3px solid rgb(99, 0, 129);
+            padding: 10px;
+        }
+
+        .wrapper img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            border: 3px solid rgb(248, 248, 248);
+            padding: 10px;
+        }
+
+        .wrapper button {
+            background-color: rgb(93, 39, 163);
+            border-width: thin;
+            border-radius: 3%;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            margin: 0 11% 0 11%;
+            width: 220px;
+            height: 35px;
+        }
+
+        .wrapper button:hover {
+            background-color: white;
+            border-width: thin;
+            border-radius: 3%;
+            color: rgb(93, 39, 163);
+            cursor: pointer;
+        }
+    </style>
+</body>
+
+</html>

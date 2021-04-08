@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product Page</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>ADD PRODUCT</h1>
+        <form>
+            <h3>PRODUCT NAME<h3>
+            <input type="text" name="product-name" id="product-name">
+            <br>
+            <br>
+            <input type="submit">
+        </form>
+    </div>
+</body>
+
+<script>
+    document.querySelector("form")
+        .addEventListener("submit", (e) => {
+            e.preventDefault();
+            let productName = document.getElementById("product-name").value;
+
+            if (productName == "") {
+                alert("All fields are required!");
+                return;
+            }
+
+            window.location.pathname = `/add?model=${productName}`;
+
+            document.getElementById("product-name").value = "";
+        })
+</script>
+
+<style>
+    .wrapper h1 {
+        text-align: center;
+        color: rgb(20, 1, 44);
+    }
+
+    .wrapper {
+        margin: auto;
+        width: 50%;
+        border: 3px solid rgb(99, 0, 129);
+        padding: 10px;
+    }
+
+    h3 {
+        text-align: center;
+        size: 50px;
+        color: rgb(20, 1, 44);
+
+    }
+
+    #product-name {
+        margin: 0 36% 0 36%;
+        width: 240px;
+        height: 25px;
+    }
+
+    input[type="submit"] {
+        background-color: rgb(93, 39, 163);
+        border-width: thin;
+        border-radius: 3%;
+        color: white;
+        cursor: pointer;
+        text-align: center;
+        margin: 0 37.5% 0 37.5%;
+        width: 220px;
+        height: 35px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: white;
+        border-width: thin;
+        border-radius: 3%;
+        color: rgb(93, 39, 163);
+        cursor: pointer;
+        text-align: center;
+        margin: 0 37.5% 0 37.5%;
+        width: 220px;
+        height: 35px;
+    }
+</style>
+
+</html>
