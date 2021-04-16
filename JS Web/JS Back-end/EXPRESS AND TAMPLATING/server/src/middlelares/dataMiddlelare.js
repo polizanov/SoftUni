@@ -29,5 +29,5 @@ module.exports = function (req, res, next) {
         return;
     }
 
-    res.send(dataValidation);
+    res.render("err", {err: dataValidation});
 }
