@@ -1,0 +1,28 @@
+<main>
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="/static/html/about.html">About us</a></li>
+            <li><a href="/static/html/add-product.html">Add product</a></li>
+            <li><a href="/static/html/home.html">Home</a></li>
+        </ul>
+    </nav>
+
+    <h2>All Products</h2>
+
+    <div class="catalogWrapper">
+            {{#each data}}
+                <div class="currentItem">
+                    <h1>{{this.name}}</h1>
+                    <img src="{{this.imgUrl}}" alt="utl-img">
+                    <p>{{this.description}}</p>
+                    <p><span>{{this.price}}</span>$</p>
+                    <a href="#">Buy</a>
+                    <a href="#">Remove</a>
+                </div>
+            {{else}}
+                <div class="catalogWrapper">
+                    <p>No files in database</p>
+                </div>
+            {{/each}}
+    </div>
+</main>

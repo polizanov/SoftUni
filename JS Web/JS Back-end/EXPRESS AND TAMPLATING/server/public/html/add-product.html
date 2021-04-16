@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+</head>
+
+<body>
+    <nav class="nav-bar">
+        <ul>
+            <li><a href="/static/html/home.html">Home</a></li>
+            <li><a href="/static/html/about.html">About us</a></li>
+            <li><a href="/catalog">Catalog</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Add product</h1>
+        <form action="/add-product" method="POST">
+            <label for="product-name">Product name</label><br>
+            <input type="text" id="product-name" name="name" value=""><br>
+
+            <label for="img-url">Image URL</label><br>
+            <input type="text" id="img-url" name="imgUrl" value=""><br>
+
+            <label for="product-description">Product description</label><br>
+            <input type="text" id="product-description" name="description" value=""><br>
+
+            <label for="product-price">Price</label><br>
+            <input type="text" id="product-price" name="price" value=""><br>
+
+            <input type="submit">
+
+        </form>
+
+    </main>
+    <footer>All Rights</footer>
+</body>
+
+</html>
