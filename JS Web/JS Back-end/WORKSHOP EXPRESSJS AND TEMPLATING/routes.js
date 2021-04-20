@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const saveModel = require('./models/saveModel.js')
 let router = Router();
 
 router.get("/", (req, res) => {
@@ -13,8 +14,8 @@ router.get("/create", (req, res) => {
     res.render("create", {title: "Create page"})
 })
 
-router.post("/create", (req, res) => {
-    console.log(req.body)
+router.post("/create", saveModel, (req, res) => {
+    res.redirect("/");
 })
 
 router.get("/details/:id", (req, res) => {
