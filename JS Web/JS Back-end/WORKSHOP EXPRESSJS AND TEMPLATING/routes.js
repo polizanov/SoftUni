@@ -27,6 +27,10 @@ router.get("/details/:id", (req, res) => {
 
 })
 
+router.get("*", (req, res) => {
+    res.render('404');
+})
+
 function findCube(id) {
     return data.find(x => x.id == id);
 }
