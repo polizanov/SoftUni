@@ -20,9 +20,7 @@ router.post("/create", saveModel, (req, res) => {
 })
 
 router.get("/details/:id", (req, res) => {
-    //console.log(req.params.id);
     let detailsData = findCube(req.params.id);
-    console.log(detailsData)
     res.render("details", { detailsData })
 
 })
