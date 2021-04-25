@@ -1,4 +1,4 @@
-let conterolData = require("../../database/controlData.js")
+let productServices = require("../../database/productServices.js")
 
 function checkProperties(name, imgUrl, description, price) {
     if (name == "" || imgUrl == "" || description == "" || price == "") {
@@ -16,7 +16,7 @@ function checkProperties(name, imgUrl, description, price) {
     return true;
 }
 
-module.exports = function (req, res, next) {
+module.exports = async function (req, res, next) {
     let name = req.body.name;
     let imgUrl = req.body.imgUrl;
     let description = req.body.description;
@@ -24,7 +24,7 @@ module.exports = function (req, res, next) {
     const dataValidation = checkProperties(name, imgUrl, description, price);
 
     if (dataValidation == true) {
-        conterolData.add({name, imgUrl, description, price})
+        await productServices.create({name, imgUrl, description, price});
         next();
         return;
     }

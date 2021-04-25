@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const dataMiddlelare = require('./src/middlelares/dataMiddlelare.js');
-const controlData = require("./database/controlData.js")
+const productServices = require('./database/productServices.js')
 
 let router = Router();
 
@@ -12,15 +12,13 @@ router.get("/about-us", (req, res) => {
     res.sendFile(__dirname + "/public/html/about.html")
 })
 
-router.get("/catalog", (req, res) => {
-    let data = controlData.show();
-    res.redirect(status, url)
+router.get("/catalog", async (req, res) => {
+    let data = await productServices.getAll();
     res.render('catalog', { data });
 })
 
-router.post("/add-product", dataMiddlelare, (req, res) => {
-    let data = controlData.show();
-    res.redirect('catalog', { data })
+router.post("/add-product", dataMiddlelare,(req, res) => {
+    res.redirect('catalog')
 })
 
 module.exports = router;
