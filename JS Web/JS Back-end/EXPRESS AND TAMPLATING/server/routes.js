@@ -14,6 +14,7 @@ router.get("/about-us", (req, res) => {
 
 router.get("/catalog", (req, res) => {
     let data = controlData.show();
+    res.redirect(status, url)
     res.render('catalog', { data });
 })
 
