@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const saveModel = require('./models/saveModel.js')
+const search = require("./models/helpers/search.js")
 let router = Router();
 let data = require("./models/db.json");
 
@@ -26,7 +27,7 @@ router.get("/details/:id", (req, res) => {
 })
 
 router.post("/search", (req, res) => {
-    let findedData = searchData({
+    let findedData = search({
         search: req.body.search,
         from: req.body.from,
         to: req.body.to,
@@ -40,30 +41,6 @@ router.get("*", (req, res) => {
 
 function findCube(id) {
     return data.find(x => x.id == id);
-}
-
-function searchData(obj){
-    let finded = [];
-
-    finded = data
-        .filter(x => x.name.toLocaleLowerCase().includes(obj.search.toLocaleLowerCase()))
-        .filter(x => {
-            if(obj.from == ""){
-                obj.from = 0;
-            }
-
-            if(obj.to == ""){
-                obj.to = 6;
-            }
-
-            return Number(x.difficultyLevel) >= Number(obj.from) && Number(x.difficultyLevel) <= Number(obj.to);
-        })
-
-        if(finded.length == 0){
-            return data;
-        }
-
-        return finded;
 }
 
 
