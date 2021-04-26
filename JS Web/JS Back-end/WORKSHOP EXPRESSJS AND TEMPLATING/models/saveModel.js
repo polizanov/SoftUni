@@ -1,15 +1,12 @@
-const fs = require("fs");
-const data = require('./db.json');
-const uniqid = require('uniqid');
+const cubeService = require("../services/cubeService.js");
 
-
-function checkData(obj){
-    if(obj.name == "" || obj.description == "" || obj.imageUrl == "" || obj.difficultyLevel == ""){
+function checkData(obj) {
+    if (obj.name == "" || obj.description == "" || obj.imageUrl == "" || obj.difficultyLevel == "") {
         console.log('in check')
         return false;
     }
 
-    if(!obj.imageUrl.startsWith('http')){
+    if (!obj.imageUrl.startsWith('http')) {
         console.log('in check')
         return false;
     }
@@ -17,20 +14,8 @@ function checkData(obj){
     return true;
 }
 
-function saveData(obj){
-    data.push(obj);
-    console.log("in")
 
-    fs.writeFile('./models/db.json', JSON.stringify(data), (err) => {
-        if(err){
-            throw err;
-        }
-        console.log("File has been saved successfully")
-    })
-}
-
-
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
     let recevedData = req.body;
 
     let result = checkData({
@@ -40,17 +25,16 @@ module.exports = (req, res, next) => {
         difficultyLevel: recevedData.difficultyLevel,
     })
 
-    if(result == false){
+    if (result == false) {
         next()
         return;
     }
 
-    saveData({
+    await cubeService.create({
         name: recevedData.name,
         description: recevedData.description,
         imageUrl: recevedData.imageUrl,
         difficultyLevel: recevedData.difficultyLevel,
-        id: uniqid(),
     })
     next()
 }

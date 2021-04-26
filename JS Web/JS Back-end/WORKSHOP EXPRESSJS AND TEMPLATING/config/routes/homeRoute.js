@@ -1,12 +1,13 @@
 const { Router } = require("express");
 let router = Router();
+require("body-parser");
 
 const saveModel = require("../../models/saveModel.js");
-const search = require("../../models/searchModel.js");
-let data = require("../../models/db.json");
+let cubeService = require("../../services/cubeService.js")
 
-router.get("/", (req, res) => {
-    res.render("home", { title: "Home page", data })
+router.get("/", async (req, res) => {
+    let data = await cubeService.getAll({})
+    res.render("home", { title: "Home page", data})
 })
 
 router.get("/about", (req, res) => {
@@ -21,18 +22,19 @@ router.post("/create", saveModel, (req, res) => {
     res.redirect("/");
 })
 
-router.get("/details/:id", (req, res) => {
-    let detailsData = (id) => data.find(x => x.id == id);
-    res.render("details", {title: "Details page", detailsData: detailsData(req.params.id) })
+router.get("/details/:id", async (req, res) => {
+    detailsData = await cubeService.findOne(req.params.id);
+    res.render("details", {title: "Details page", detailsData: detailsData })
 })
 
-router.post("/search", (req, res) => {
-    let findedData = search({
-        search: req.body.search,
-        from: req.body.from,
-        to: req.body.to,
+router.post("/search", async (req, res) => {
+    let info = req.body;
+    let data = await cubeService.getAll({
+        search: info.search,
+        from: info.from,
+        to: info.to,
     })
-    res.render("home", {title: "Home page", data: findedData});
+    res.render("home", {title: "Home page", data});
 })
 
 module.exports = router;
