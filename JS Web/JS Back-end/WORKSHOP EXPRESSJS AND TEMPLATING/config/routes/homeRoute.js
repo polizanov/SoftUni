@@ -23,8 +23,9 @@ router.post("/create", saveModel, (req, res) => {
 })
 
 router.get("/details/:id", async (req, res) => {
-    detailsData = await cubeService.findOne(req.params.id);
-    res.render("details", {title: "Details page", detailsData: detailsData })
+    detailsData = await cubeService.findOneWithAccesssories(req.params.id);
+    console.log(detailsData)
+    res.render("updatedDetailsPage", {title: "Details page", detailsData: detailsData })
 })
 
 router.post("/search", async (req, res) => {

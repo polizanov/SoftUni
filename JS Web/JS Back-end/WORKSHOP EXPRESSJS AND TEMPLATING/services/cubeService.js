@@ -27,8 +27,20 @@ async function findOne(id){
     return Cube.findById(id).lean();
 }
 
+async function findOneWithAccesssories(id){
+    return Cube.findById(id).populate('accessories').lean();
+}
+
+async function attachAccessory(cubeId, accessoryId){
+    let cube = await Cube.findById(cubeId);
+    cube.accessories.push(accessoryId);
+    return cube.save();
+}
+
 module.exports = {
     create,
     getAll,
     findOne,
+    attachAccessory,
+    findOneWithAccesssories,
 }
