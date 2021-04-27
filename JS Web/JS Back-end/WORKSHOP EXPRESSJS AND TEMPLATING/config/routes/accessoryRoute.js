@@ -15,10 +15,8 @@ router.post("/create", saveAccessory, (req, res) => {
 
 router.get("/attach/:id", async (req, res) => {
     try {
-        let [cubeDetails, accessoryArr] = await Promise.all([
-            cubeService.findOne(req.params.id),
-            accessoryService.getAll(),
-        ])
+        let cubeDetails = await cubeService.findOne(req.params.id);
+        let accessoryArr = await accessoryService.getAll(cubeDetails.accessories);
         res.render("attachAccessory", { title: "Attach a new accessory", cubeDetails, accessoryArr });
     } catch (err){
         res.status(500)

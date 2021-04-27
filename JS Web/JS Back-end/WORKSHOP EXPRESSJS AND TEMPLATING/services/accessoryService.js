@@ -1,12 +1,12 @@
 const Accessory = require("../models/schemes/Accessory.js");
 
-function create(data){
+function create(data) {
     let accessory = new Accessory(data);
     return accessory.save();
 }
 
-function getAll(){
-    return Accessory.find({}).lean();
+async function getAll(id) {
+    return Accessory.find({ _id: { $nin: id } }).lean();
 }
 
 module.exports = {
