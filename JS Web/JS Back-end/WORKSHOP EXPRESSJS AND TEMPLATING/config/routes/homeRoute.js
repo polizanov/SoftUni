@@ -6,8 +6,12 @@ const saveModel = require("../../models/validate/saveModel.js");
 const cubeService = require("../../services/cubeService.js")
 
 router.get("/", async (req, res) => {
-    let data = await cubeService.getAll({})
-    res.render("home", { title: "Home page", data})
+    try {
+        let data = await cubeService.getAll({})
+        res.render("home", { title: "Home page", data })
+    } catch (err) {
+        res.status(500)
+    }
 })
 
 router.get("/about", (req, res) => {
@@ -23,19 +27,26 @@ router.post("/create", saveModel, (req, res) => {
 })
 
 router.get("/details/:id", async (req, res) => {
-    detailsData = await cubeService.findOneWithAccesssories(req.params.id);
-    console.log(detailsData)
-    res.render("updatedDetailsPage", {title: "Details page", detailsData: detailsData })
+    try {
+        detailsData = await cubeService.findOneWithAccesssories(req.params.id);
+        res.render("updatedDetailsPage", { title: "Details page", detailsData: detailsData })
+    } catch (err) {
+        res.status(500)
+    }
 })
 
 router.post("/search", async (req, res) => {
     let info = req.body;
-    let data = await cubeService.getAll({
-        search: info.search,
-        from: info.from,
-        to: info.to,
-    })
-    res.render("home", {title: "Home page", data});
+    try {
+        let data = await cubeService.getAll({
+            search: info.search,
+            from: info.from,
+            to: info.to,
+        })
+        res.render("home", { title: "Home page", data });
+    } catch (err) {
+        res.status(500)
+    }
 })
 
 module.exports = router;

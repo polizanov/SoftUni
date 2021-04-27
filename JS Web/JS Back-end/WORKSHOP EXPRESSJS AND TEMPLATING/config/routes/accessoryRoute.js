@@ -6,7 +6,7 @@ const cubeService = require("../../services/cubeService.js")
 const accessoryService = require("../../services/accessoryService.js")
 
 router.get("/create", (req, res) => {
-    res.render("createAccessory");
+    res.render("createAccessory", { title: "Create accessory" });
 })
 
 router.post("/create", saveAccessory, (req, res) => {
@@ -14,18 +14,25 @@ router.post("/create", saveAccessory, (req, res) => {
 })
 
 router.get("/attach/:id", async (req, res) => {
-    let [cubeDetails, accessoryArr] = await Promise.all([
-        cubeService.findOne(req.params.id),
-        accessoryService.getAll(),
-    ])
-    res.render("attachAccessory", {cubeDetails, accessoryArr});
+    try {
+        let [cubeDetails, accessoryArr] = await Promise.all([
+            cubeService.findOne(req.params.id),
+            accessoryService.getAll(),
+        ])
+        res.render("attachAccessory", { title: "Attach a new accessory", cubeDetails, accessoryArr });
+    } catch (err){
+        res.status(500)
+    }
 })
 
 router.post("/attach/:id", async (req, res) => {
-    // console.log(req.body.accessory)
-    // console.log(req.params.id)
-    await cubeService.attachAccessory(req.params.id, req.body.accessory);
-    res.redirect("/details/" + req.params.id)
+    try {
+        await cubeService.attachAccessory(req.params.id, req.body.accessory);
+        res.redirect("/details/" + req.params.id)
+    } catch (err){
+        res.status(500)
+    }
+    
 })
 
 module.exports = router;
