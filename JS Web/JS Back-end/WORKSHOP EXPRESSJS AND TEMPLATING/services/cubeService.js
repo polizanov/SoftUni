@@ -1,4 +1,4 @@
-const Cube = require("../models/Cube.js");
+const Cube = require("../models/schemes/Cube.js");
 
 async function create(data) {
     let cube = new Cube(data);

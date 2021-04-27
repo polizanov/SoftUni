@@ -1,9 +1,9 @@
 const { Router } = require("express");
-let router = Router();
+const router = Router();
 require("body-parser");
 
-const saveModel = require("../../models/saveModel.js");
-let cubeService = require("../../services/cubeService.js")
+const saveModel = require("../../models/validate/saveModel.js");
+const cubeService = require("../../services/cubeService.js")
 
 router.get("/", async (req, res) => {
     let data = await cubeService.getAll({})

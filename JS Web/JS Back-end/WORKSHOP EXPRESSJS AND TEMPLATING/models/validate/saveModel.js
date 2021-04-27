@@ -1,4 +1,4 @@
-const cubeService = require("../services/cubeService.js");
+const cubeService = require("../../services/cubeService.js");
 
 function checkData(obj) {
     if (obj.name == "" || obj.description == "" || obj.imageUrl == "" || obj.difficultyLevel == "") {
