@@ -2,12 +2,10 @@ const cubeService = require("../../services/cubeService.js");
 
 function checkData(obj) {
     if (obj.name == "" || obj.description == "" || obj.imageUrl == "" || obj.difficultyLevel == "") {
-        console.log('in check')
         return false;
     }
 
     if (!obj.imageUrl.startsWith('http')) {
-        console.log('in check')
         return false;
     }
 

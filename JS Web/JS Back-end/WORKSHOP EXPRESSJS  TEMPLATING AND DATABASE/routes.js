@@ -7,6 +7,4 @@ const accessoryRoute = require("./config/routes/accessoryRoute.js");
 router.use("/", homeRoute);
 router.use("/accessories", accessoryRoute);
 
-
-
 module.exports = router;
