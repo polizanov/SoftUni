@@ -24,7 +24,12 @@ let cubeSchema = new mongoose.Schema({
     accessories: [{
         type: mongoose.Types.ObjectId,
         ref: 'Accessory',
-    }]
+    }],
+    userId: {
+        type: String,
+        required: true,
+    }
+
 })
 
 module.exports = mongoose.model('Cube', cubeSchema);
