@@ -1,8 +1,11 @@
 module.exports = {
     dev: {
+        SALT_REGISTER: 10,
         port: 3000,
     },
-    stand: {
+    prod: {
+        SALT_REGISTER: 10,
         port: 80
     }
 }
+
