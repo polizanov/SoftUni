@@ -1,6 +1,16 @@
 const Cube = require("../models/schemes/Cube.js");
 
 async function create(data) {
+    if (data.name == "" || data.description == "" || data.imageUrl == "") {
+        throw { message: "All fields are required!" }
+    }
+
+    if (!data.imageUrl.startsWith('http')) {
+        throw { message: "Invalid URL!" }
+    }
+
+    
+
     let cube = new Cube(data);
     return cube.save();
 }
