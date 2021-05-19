@@ -4,10 +4,9 @@ require("body-parser");
 
 
 const {create, findOneWithAccesssories, getAll} = require("../../services/cubeService.js")
-
+const forAutheticated = require("../../middlewares/authenticated");
 
 router.get("/", async (req, res) => {
-    console.log("in")
     try {
         let data = await getAll({})
         res.render("home", { title: "Home page", data })
@@ -20,11 +19,11 @@ router.get("/about", (req, res) => {
     res.render("about", { title: "About page" })
 })
 
-router.get("/create", (req, res) => {
+router.get("/create", forAutheticated, (req, res) => {
     res.render("create", { title: "Create page" })
 })
 
-router.post("/create", async (req, res) => {
+router.post("/create", forAutheticated, async (req, res) => {
     try {
         await create(req.body);
     } catch (err){
