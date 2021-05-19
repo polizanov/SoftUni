@@ -4,11 +4,14 @@ const { register, login } = require("../../services/authService");
 const { USER_SESSION } = require("../start").dev
 require("body-parser");
 
-router.get("/login", (req, res) => {
+const forAutheticated = require("../../middlewares/authenticated");
+const forGuest = require("../../middlewares/guest");
+
+router.get("/login", forGuest, (req, res) => {
     res.render("login");
 })
 
-router.post("/login", async (req, res) => {
+router.post("/login", forGuest, async (req, res) => {
     try {
         let token = await login(req.body);
         res.cookie(USER_SESSION, token);
@@ -19,11 +22,11 @@ router.post("/login", async (req, res) => {
     res.redirect("/");
 })
 
-router.get("/register", (req, res) => {
+router.get("/register", forGuest, (req, res) => {
     res.render("register");
 })
 
-router.post("/register", async (req, res) => {
+router.post("/register", forGuest, async (req, res) => {
     try {
         await register(req.body)
     } catch (err) {
@@ -31,6 +34,11 @@ router.post("/register", async (req, res) => {
         return;
     }
     res.redirect("/auth/login");
+})
+
+router.get("/logout", forAutheticated, (req, res) => {
+    res.clearCookie(USER_SESSION);
+    res.redirect("/");
 })
 
 module.exports = router;
