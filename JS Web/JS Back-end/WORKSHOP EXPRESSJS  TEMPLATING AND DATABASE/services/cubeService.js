@@ -1,7 +1,6 @@
 const Cube = require("../models/schemes/Cube.js");
 
 async function create(data, userId) {
-    console.log(userId)
     if (data.name == "" || data.description == "" || data.imageUrl == "") {
         throw { message: "All fields are required!" }
     }
@@ -46,10 +45,28 @@ async function attachAccessory(cubeId, accessoryId){
     return cube.save();
 }
 
+async function editCube(cubeId, data){
+    if (data.name == "" || data.description == "" || data.imageUrl == "") {
+        throw { message: "All fields are required!" }
+    }
+
+    if (!data.imageUrl.startsWith('http')) {
+        throw { message: "Invalid URL!" }
+    }
+
+    return await Cube.updateOne({_id: cubeId}, data)
+}
+
+async function deleteCube(cubeId){
+    return Cube.deleteOne({_id: cubeId})
+}
+
 module.exports = {
     create,
     getAll,
     findOne,
     attachAccessory,
     findOneWithAccesssories,
+    editCube,
+    deleteCube
 }

@@ -1,13 +1,7 @@
 <div class="container">
-    <header>
-        <ul>
-            <li><img class="logo" src="/static/images/logo.png"></li>
-            <li><a href="/">Browse</a></li>
-            <li><a href="/create">Add a Cube</a></li>
-            <li><a href="/accessories/create">Add Accessory</a></li>
-            <li><a href="/about">About</a></li>
-        </ul>
-    </header>
+    {{#if err}}
+    <span class="error">{{err.message}}</span>
+    {{/if}}
     <main>
         <h1>{{detailsData.name}}</h1>
         <img class="cube" src="{{detailsData.imageUrl}}">
@@ -16,6 +10,8 @@
             <p><span>Difficulty level:</span> {{detailsData.difficultyLevel}}</p>
             <a class="btn" href="/">Back</a>
             <a class="btn" href="/accessories/attach/{{detailsData._id}}">Attach accessory</a>
+            <a class="btn" href="/edit/{{detailsData._id}}">Edit</a>
+            <a class="btn" href="/delete/{{detailsData._id}}">Delete</a>
         </div>
         <h2>Accessories</h2>
         <div class="accessories">
