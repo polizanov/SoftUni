@@ -25,7 +25,7 @@ router.get("/create", forAutheticated, (req, res) => {
 
 router.post("/create", forAutheticated, async (req, res) => {
     try {
-        await create(req.body);
+        await create(req.body, req.user._id);
     } catch (err){
         return res.render("create", {err});
     }

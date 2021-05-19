@@ -1,6 +1,7 @@
 const Cube = require("../models/schemes/Cube.js");
 
-async function create(data) {
+async function create(data, userId) {
+    console.log(userId)
     if (data.name == "" || data.description == "" || data.imageUrl == "") {
         throw { message: "All fields are required!" }
     }
@@ -9,9 +10,7 @@ async function create(data) {
         throw { message: "Invalid URL!" }
     }
 
-    
-
-    let cube = new Cube(data);
+    let cube = new Cube({...data, userId: userId});
     return cube.save();
 }
 
