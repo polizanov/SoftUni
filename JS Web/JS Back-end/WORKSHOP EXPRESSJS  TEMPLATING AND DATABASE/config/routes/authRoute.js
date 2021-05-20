@@ -38,6 +38,8 @@ router.post("/register", forGuest, async (req, res) => {
 
 router.get("/logout", forAutheticated, (req, res) => {
     res.clearCookie(USER_SESSION);
+    res.locals.user = {};
+    res.locals.isAuthenticated = false;
     res.redirect("/");
 })
 

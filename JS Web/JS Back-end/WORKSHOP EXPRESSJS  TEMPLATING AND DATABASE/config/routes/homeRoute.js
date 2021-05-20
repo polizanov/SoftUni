@@ -42,9 +42,9 @@ router.post("/create", forAutheticated, async (req, res) => {
 router.get("/edit/:id", forAutheticated, async (req, res) => {
     try {
         let detailsData = await findOne(req.params.id);
-        res.render("editCube", { title: "Edit Cube", detailsData })
+        res.render("editCube", { title: "Edit Cube", detailsData})
     } catch (err) {
-        return res.render("edit", { err });
+        return res.render("editCube", { err });
     }
 })
 
@@ -52,7 +52,7 @@ router.post("/edit/:id", forAutheticated, (req, res) => {
     try {
         editCube(req.params.id, req.body);
     } catch (err) {
-        return res.render("edit", { err });
+        return res.render("editCube", { err });
     }
     res.redirect(`/details/${req.params.id}`)
 })
@@ -64,7 +64,7 @@ router.get("/delete/:id", forAutheticated, async (req, res) => {
     } catch (err) {
         return res.render("deleteCube", { err })
     }
-    
+
 })
 
 router.post("/delete/:id", forAutheticated, (req, res) => {
@@ -78,8 +78,15 @@ router.post("/delete/:id", forAutheticated, (req, res) => {
 
 router.get("/details/:id", async (req, res) => {
     try {
+        let isAuthorised;
         detailsData = await findOneWithAccesssories(req.params.id);
-        res.render("updatedDetailsPage", { title: "Details page", detailsData: detailsData })
+        if (!res.locals.user) {
+            isAuthorised = false;
+        } else {
+            isAuthorised = res.locals.user._id == detailsData.userId
+        }
+
+        res.render("updatedDetailsPage", { title: "Details page", detailsData: detailsData, isAuthorised })
     } catch (err) {
         res.status(500)
     }
