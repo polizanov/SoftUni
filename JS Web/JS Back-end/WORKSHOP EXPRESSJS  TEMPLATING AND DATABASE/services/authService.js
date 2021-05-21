@@ -51,17 +51,6 @@ async function login(userData) {
         throw { message: "Username should be at least 5 characters long!" }
     }
 
-    if (!LETTERS_AND_DIGITS_PATTERN.test(userData.username)) {
-        throw { message: "Username and Password should consist only with English letters and digits!" }
-    }
-
-    if (!LETTERS_AND_DIGITS_PATTERN.test(userData.password)) {
-        throw { message: "Username and Password should consist only with English letters and digits!" }
-    }
-
-    if(userData.password.length < 8){
-        throw { message: "Password should be at least 8 characters long" }
-    }
 
     let user = await User.findOne({ username: userData.username });
 

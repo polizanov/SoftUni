@@ -4,11 +4,15 @@ let cubeSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
+        validate: /^[a-zA-Z0-9 ]+$/,
+        mixLength: 5,
     },
     description: {
         type: String,
         required: true,
-        maxLength: 50,
+        maxLength: 100,
+        validate: /^[a-zA-Z0-9 ]+$/,
+        mixLength: 20,
     },
     imageUrl: {
         type: String,

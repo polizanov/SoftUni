@@ -4,6 +4,8 @@ let accessorySchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
+        validate: /^[a-zA-Z0-9 ]+$/,
+        minLength: 5,
     },
     imageUrl: {
         type: String,
@@ -13,7 +15,10 @@ let accessorySchema = new mongoose.Schema({
     description: {
         type: String,
         required: true,
-        maxLength: 50,
+        maxLength: 100,
+        minLength: 20,
+        validate: /^[a-zA-Z0-9 ]+$/,
+
     }
 })
 
