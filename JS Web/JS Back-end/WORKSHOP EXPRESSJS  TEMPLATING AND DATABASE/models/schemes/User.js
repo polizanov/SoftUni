@@ -4,10 +4,15 @@ let userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
+        unique: true,
+        validate: /^[a-zA-Z\d]+$/,
+        minLength: 5
     },
     password: {
         type: String,
         required: true,
+        validate: /^[a-zA-Z\d]+$/,
+        minLength: 8
     },
 })
 

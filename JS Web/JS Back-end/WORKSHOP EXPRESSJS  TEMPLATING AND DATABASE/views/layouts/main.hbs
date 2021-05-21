@@ -25,6 +25,11 @@
             <li><a href="/about">About</a></li>
         </ul>
     </header>
+    {{#if err}}
+    <div id="notifications">
+        <p id="idnotification-message">{{err.message}}</p>
+    </div>
+    {{/if}}
     {{{body}}}
     <footer>@Cubicle: Exercise for Express.js and Handlebars</footer>
 </body>

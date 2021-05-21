@@ -1,19 +1,28 @@
 const User = require("../models/schemes/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken")
-const { SALT_REGISTER, SECRET_JWT } = require("../config/start").dev;
+const { SALT_REGISTER, SECRET_JWT} = require("../config/start").dev;
+let LETTERS_AND_DIGITS_PATTERN = /^[a-zA-Z\d]+$/;
 
 async function register(userData) {
-    if (userData.username == "") {
-        throw { message: "Username cannot be empty string!" }
+    if(userData.username == "" || userData.password == ""){
+        throw { message: "All fields are requred" }
     }
 
-    if (userData.username[0].charCodeAt(0) < 97 || userData.username[0].charCodeAt(0) > 122) {
-        throw { message: "Username cannot be upper case later or charecter!" }
+    if (userData.username.length < 5) {
+        throw { message: "Username should be at least 5 characters long!" }
     }
 
-    if (userData.password.length < 4) {
-        throw { message: "Password must be at least 4 charecters long!" }
+    if (!LETTERS_AND_DIGITS_PATTERN.test(userData.username)) {
+        throw { message: "Username and Password should consist only with English letters and digits!" }
+    }
+
+    if (!LETTERS_AND_DIGITS_PATTERN.test(userData.password)) {
+        throw { message: "Username and Password should consist only with English letters and digits!" }
+    }
+
+    if(userData.password.length < 8){
+        throw { message: "Password should be at least 8 characters long" }
     }
 
     if (userData.repeatPassword !== userData.password) {
@@ -34,16 +43,24 @@ async function register(userData) {
 }
 
 async function login(userData) {
-    if (userData.username == "") {
-        throw { message: "Username cannot be empty string!" }
+    if(userData.username == "" || userData.password == ""){
+        throw { message: "All fields are requred" }
     }
 
-    if (userData.username[0].charCodeAt(0) < 97 || userData.username[0].charCodeAt(0) > 122) {
-        throw { message: "Username cannot be upper case later or charecter!" }
+    if (userData.username.length < 5) {
+        throw { message: "Username should be at least 5 characters long!" }
     }
 
-    if (userData.password.length < 4) {
-        throw { message: "Password must be at least 4 charecters long!" }
+    if (!LETTERS_AND_DIGITS_PATTERN.test(userData.username)) {
+        throw { message: "Username and Password should consist only with English letters and digits!" }
+    }
+
+    if (!LETTERS_AND_DIGITS_PATTERN.test(userData.password)) {
+        throw { message: "Username and Password should consist only with English letters and digits!" }
+    }
+
+    if(userData.password.length < 8){
+        throw { message: "Password should be at least 8 characters long" }
     }
 
     let user = await User.findOne({ username: userData.username });
