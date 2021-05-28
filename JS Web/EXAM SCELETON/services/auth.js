@@ -1,6 +1,7 @@
 const User = require("../schemes/User");
 const bcrypt = require("bcrypt");
-const { SALT_ROUNDS } = require("../config");
+const jwt = require("jsonwebtoken")
+const { SALT_ROUNDS, JWT_LOGIN_SECRET } = require("../config");
 
 
 async function register(registerData) {
@@ -33,6 +34,35 @@ async function register(registerData) {
     return userObj.save()
 }
 
+async function login(loginData){
+    if (loginData.username == "" || loginData.password == "") {
+        throw { message: "All fields are requred" }
+    }
+
+    if (loginData.username.length < 5) {
+        throw { message: "Username should be at least 5 characters long!" }
+    }
+
+
+    if (loginData.password.length < 8) {
+        throw { message: "Password should be at least 8 characters long" }
+    }
+
+    let user = await User.findOne({ username: loginData.username });
+
+    if (!user) {
+        throw { message: "Incorect username and password!" }
+    }
+
+    const match = bcrypt.compare(loginData.password.trim(), user.password)
+
+    if(!match){
+        throw { message: "Incorect username and password!" }
+    } 
+    return jwt.sign({"_id": user._id, username: user.username}, JWT_LOGIN_SECRET);
+}
+
 module.exports = {
-    register
+    register,
+    login
 }
