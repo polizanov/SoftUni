@@ -1,10 +1,17 @@
 const express = require("express")
-const hbs = require("express-handlebars");
+const handlebars = require("express-handlebars");
+const cookieParser = require("cookie-parser")
+
 
 module.exports = (app) => {
-    app.engine('hbs', hbs({ extname: ".hbs" }));
+    app.engine('hbs', handlebars({ extname: ".hbs" }));
     app.set('view engine', 'hbs');
 
+    app.use(express.urlencoded({ extended: false }));
+
     app.use("/static", express.static("public"));
+
+    app.use(cookieParser())
+
 }
 
