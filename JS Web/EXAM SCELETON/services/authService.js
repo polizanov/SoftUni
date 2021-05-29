@@ -62,7 +62,12 @@ async function login(loginData){
     return jwt.sign({"_id": user._id, username: user.username}, JWT_LOGIN_SECRET);
 }
 
+async function findUserWithId(id){
+    return User.findOne({ _id: id });
+}
+
 module.exports = {
     register,
-    login
+    login,
+    findUserWithId,
 }

@@ -1,1 +1,4 @@
-<p>Home Page</p>
+<h2>Home Page</h2>
+{{#if isAuthenticated}}
+    <p>Hallo, {{user.username}}</p>
+{{/if}}
