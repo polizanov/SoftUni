@@ -23,6 +23,10 @@ const courceSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    ownerId: {
+        type: String,
+        required: true,
+    },
     usersEnroled: [{
         type: mongoose.Types.ObjectId,
         ref: 'User'
