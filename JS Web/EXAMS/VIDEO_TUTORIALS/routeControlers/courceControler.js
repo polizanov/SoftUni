@@ -16,4 +16,15 @@ router.post("/create", async (req, res) => {
     }
 })
 
+router.get("/details/:courceId", async (req, res, next) => {
+    try {
+        let data = await courceService.getOneById(req.params.courceId);
+        let isOwner = data.ownerId == res.locals.user._id;
+        res.render("cource/details", { title: "Details", data, isOwner });
+    } catch (err){
+        console.log(err)
+        next()
+    }
+})
+
 module.exports = router;

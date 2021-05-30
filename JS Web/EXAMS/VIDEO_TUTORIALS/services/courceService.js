@@ -32,7 +32,12 @@ async function getAllCourcesForUsers(userId){
     }));
 }
 
+function getOneById(id){
+    return Cource.findOne({ _id: id }).lean();
+}
+
 module.exports = {
     create,
     getAllCourcesForUsers,
+    getOneById,
 }
