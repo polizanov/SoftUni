@@ -13,12 +13,15 @@
                 <h3 class="my-3">Course Description</h3>
                 <p>{{data.description}}</p>
 
-                {{#if isOwner}}
+                {{#if data.isOwner}}
                     <a class="btn btn-danger" href="/">Delete</a>
                     <a class="btn btn-warning" href="/">Edit</a>
                 {{else}}
-                    <span class="enrolled-span">You are already enrolled</span>
-                    <a class="btn btn-primary" href="/">Enroll</a>
+                    {{#if data.isEnroll}}
+                        <span class="enrolled-span">You are already enrolled</span>
+                    {{else}}
+                        <a class="btn btn-primary" href="/course/enroll/{{data._id}}">Enroll</a>
+                    {{/if}}
                 {{/if}}
                
             </div>

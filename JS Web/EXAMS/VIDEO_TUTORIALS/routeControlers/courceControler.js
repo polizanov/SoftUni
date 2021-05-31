@@ -18,13 +18,24 @@ router.post("/create", async (req, res) => {
 
 router.get("/details/:courceId", async (req, res, next) => {
     try {
-        let data = await courceService.getOneById(req.params.courceId);
-        let isOwner = data.ownerId == res.locals.user._id;
-        res.render("cource/details", { title: "Details", data, isOwner });
+        let data = await courceService.getOneById(req.params.courceId, res.locals.user._id);
+        res.render("cource/details", { title: "Details", data });
+    } catch (err) {
+        console.log(err)
+        next()
+    }
+})
+
+router.get("/enroll/:courceId", async (req, res, next) => {
+    console.log(res.locals.user._id);
+    try {
+        await courceService.enrollUser(req.params.courceId, res.locals.user._id)
+        res.redirect(`/course/details/${req.params.courceId}`);
     } catch (err){
         console.log(err)
         next()
     }
 })
+
 
 module.exports = router;
