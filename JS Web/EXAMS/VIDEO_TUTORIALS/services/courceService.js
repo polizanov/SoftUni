@@ -5,6 +5,18 @@ function create(data, userId) {
         throw { message: "All fields are requred" }
     }
 
+    if(data.title < 4){
+        throw { message: "Title should be at least 4 characters" }
+    }
+
+    if(data.description < 4){
+        throw { message: "Description should be at least 20 characters" }
+    }
+
+    if(!data.imageUrl.startsWith("http") || !data.imageUrl.startsWith("https")){
+        throw { message: "ImageUrl should be starts with http or https" }
+    }
+
     let isPublic = data.isPublic == "on";
 
     let dataObj = {
@@ -26,6 +38,19 @@ async function update(data, id){
         throw { message: "All fields are requred" }
     }
 
+    if(data.title < 4){
+        throw { message: "Title should be at least 4 characters" }
+    }
+
+    if(data.description < 4){
+        throw { message: "Description should be at least 20 characters" }
+    }
+
+    if(!data.imageUrl.startsWith("http") || !data.imageUrl.startsWith("https")){
+        throw { message: "ImageUrl should be starts with http or https" }
+    }
+
+
     let isPublic = data.isPublic == "on";
 
     let dataObj = {
@@ -39,7 +64,7 @@ async function update(data, id){
 }
 
 async function getAllCourcesForUsers(userId) {
-    return await Cource.find({}).sort({ createdAt: -1 }).lean()
+    return Cource.find({}).sort({ createdAt: -1 }).lean()
         .then(x => x.filter((e) => {
             if (e.ownerId == userId) {
                 return true;
@@ -47,6 +72,11 @@ async function getAllCourcesForUsers(userId) {
                 return e.isPublic == true
             }
         }));
+}
+
+async function getTopThree(){
+    return Cource.find({}).sort({ createdAt: -1 }).lean()
+        .then(x => x.filter((e) => e.isPublic == true))
 }
 
 async function getOneById(id, userId) {
@@ -79,4 +109,5 @@ module.exports = {
     enrollUser,
     deleteCource,
     update,
+    getTopThree
 }

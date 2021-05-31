@@ -5,11 +5,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
+        validate: /^[a-zA-Z\d]+$/,
+        minLength: 5
     },
     password: {
         type: String,
         required: true,
-        minLength: 8,
+        minLength: 5
     },
     enrolledCources: [{
         type: mongoose.Types.ObjectId,

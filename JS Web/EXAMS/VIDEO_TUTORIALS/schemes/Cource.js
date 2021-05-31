@@ -5,15 +5,17 @@ const courceSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
+        minLength: 4,
     },
     description: {
         type: String,
         required: true,
-        maxLength: 50,
+        maxLength: 20,
     },
     imageUrl: {
         type: String,
         required: true,
+        validate: /https?/
     },
     isPublic: {
         type: Boolean,

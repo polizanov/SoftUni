@@ -6,20 +6,29 @@ const courceService = require("../services/courceService")
 
 router.get("/", (req, res, next) => {
     if (res.locals.isAuthenticated) {
-        {
-            courceService.getAllCourcesForUsers(res.locals.user._id)
-                .then(cources => {
-                    cources = cources.map(x => Object.assign(x, {createdAt: moment().format('MMMM Do YYYY') }));
-                    res.render("home/home", { title: "Home Page", cources });
-                })
-                .catch(next);
-        }
+        courceService.getAllCourcesForUsers(res.locals.user._id)
+            .then(cources => {
+                cources = cources.map(x => Object.assign(x, { createdAt: moment().format('MMMM Do YYYY') }));
+                res.render("home/home", { title: "Home Page", cources });
+            })
+            .catch(next);
     } else {
-        res.render("home/home", { title: "Home Page" });
+        courceService.getTopThree()
+            .then(cources => {
+                cources = cources
+                    .map(x => Object.assign(x, { createdAt: moment().format('MMMM Do YYYY') }))
+                    .sort((a, b) => b.usersEnroled.length - a.usersEnroled.length)
+                    .slice(0, 4)
+    
+                console.log(cources)
+                res.render("home/home", { title: "Home Page", cources });
+            })
+            .catch(err => console.log(err));
+        
     }
 
 
-    
+
 })
 
 router.get("/about", (req, res) => {

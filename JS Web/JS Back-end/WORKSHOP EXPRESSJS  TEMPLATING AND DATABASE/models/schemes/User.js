@@ -11,7 +11,6 @@ let userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-        validate: /^[a-zA-Z\d]+$/,
         minLength: 8
     },
 })
