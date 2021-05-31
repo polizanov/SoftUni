@@ -21,6 +21,23 @@ function create(data, userId) {
     return courceObj.save()
 }
 
+async function update(data, id){
+    if (data.title == "" || data.description == "" || data.imageUrl == "") {
+        throw { message: "All fields are requred" }
+    }
+
+    let isPublic = data.isPublic == "on";
+
+    let dataObj = {
+        title: data.title,
+        description: data.description,
+        imageUrl: data.imageUrl,
+        isPublic,
+    }
+
+    return Cource.updateOne({_id: id}, dataObj);
+}
+
 async function getAllCourcesForUsers(userId) {
     return await Cource.find({}).sort({ createdAt: -1 }).lean()
         .then(x => x.filter((e) => {
@@ -61,4 +78,5 @@ module.exports = {
     getOneById,
     enrollUser,
     deleteCource,
+    update,
 }
