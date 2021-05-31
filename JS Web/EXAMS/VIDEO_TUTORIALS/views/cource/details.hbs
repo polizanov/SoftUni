@@ -14,7 +14,7 @@
                 <p>{{data.description}}</p>
 
                 {{#if data.isOwner}}
-                    <a class="btn btn-danger" href="/">Delete</a>
+                    <a class="btn btn-danger" href="/course/delete/{{data._id}}">Delete</a>
                     <a class="btn btn-warning" href="/">Edit</a>
                 {{else}}
                     {{#if data.isEnroll}}

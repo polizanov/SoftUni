@@ -51,9 +51,14 @@ async function enrollUser(courceId, userId){
     return Cource.replaceOne({ _id: courceId }, data);
 }
 
+function deleteCource(id) {
+    return Cource.deleteOne({_id: id});
+}
+
 module.exports = {
     create,
     getAllCourcesForUsers,
     getOneById,
     enrollUser,
+    deleteCource,
 }
