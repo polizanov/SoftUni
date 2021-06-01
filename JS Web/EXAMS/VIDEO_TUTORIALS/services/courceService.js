@@ -74,6 +74,18 @@ async function getAllCourcesForUsers(userId) {
         }));
 }
 
+async function searchCource(userId, value){
+    return Cource.find({}).sort({ createdAt: -1 }).lean()
+        .then(x => x.filter((e) => {
+            if (e.ownerId == userId) {
+                return true;
+            } else {
+                return e.isPublic == true
+            }
+        })
+        .filter((x) => x.title.toLocaleLowerCase().includes(value.toLocaleLowerCase())));
+}
+
 async function getTopThree(){
     return Cource.find({}).sort({ createdAt: -1 }).lean()
         .then(x => x.filter((e) => e.isPublic == true))
@@ -109,5 +121,6 @@ module.exports = {
     enrollUser,
     deleteCource,
     update,
-    getTopThree
+    getTopThree, 
+    searchCource
 }
