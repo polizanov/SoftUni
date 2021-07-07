@@ -1,0 +1,6 @@
+<div *ngIf="avatars === null">Loading</div>
+<div *ngIf="avatars !== null">
+  <ul>
+    <li *ngFor="let avatar of avatars">{{avatar.title}}  -->  {{avatar.completed}}</li>
+  </ul>
+</div>
