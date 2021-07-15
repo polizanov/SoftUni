@@ -9,7 +9,8 @@ import { ThemeComponent } from './theme/theme.component';
 import { AsideComponent } from './aside/aside.component';
 
 import { AuthorizationService } from "./authorization.service";
-import { GeneratePostsService } from "./generate-posts.service"
+import { GeneratePostsService } from "./generate-posts.service";
+import { GenerateRecentPostsService } from "./generate-recent-posts.service"
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { GeneratePostsService } from "./generate-posts.service"
   ],
   providers: [
     AuthorizationService,
-    GeneratePostsService
+    GeneratePostsService,
+    GenerateRecentPostsService,
   ],
   bootstrap: [
     AppComponent,
