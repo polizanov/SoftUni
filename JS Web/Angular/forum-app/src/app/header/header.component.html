@@ -3,14 +3,25 @@
         <div class="logo-wrap">
             <p class="logo"><span class="logo">SoftUni Forum</span></p>
         </div>
-        <div class="mini-navbar">
+        <div *ngIf="!isLogged" class="mini-navbar">
             <ul>
                 <li>
-                    <a href="#">Login</a>
+                    <a (click)="login()" href="#">Login</a>
                 </li>
                 <li>
                     <a href="#">Register</a>
                 </li>
+            </ul>
+        </div>
+        <div *ngIf="isLogged" class="mini-navbar">
+            <ul>
+                <li>
+                    <a href="#">Hallo @username</a>
+                </li>
+                <li>
+                    <a (click)="logout()" href="#">Logout</a>
+                </li>
+                
             </ul>
         </div>
     </div>

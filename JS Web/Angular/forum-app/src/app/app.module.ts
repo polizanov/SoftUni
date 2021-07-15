@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ThemeComponent } from './theme/theme.component';
 import { AsideComponent } from './aside/aside.component';
+
+import { AuthorizationService } from "./authorization.service";
+import { GeneratePostsService } from "./generate-posts.service"
 
 
 @NgModule({
@@ -17,9 +21,13 @@ import { AsideComponent } from './aside/aside.component';
     AsideComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthorizationService,
+    GeneratePostsService
+  ],
   bootstrap: [
     AppComponent,
     HeaderComponent,
