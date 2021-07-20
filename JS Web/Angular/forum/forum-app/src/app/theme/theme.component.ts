@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GeneratePostsService } from "../generate-posts.service"
-import {ITheme} from "../interfaces/theme"
+import { GeneratePostsService } from "./generate-posts.service"
+import {ITheme} from "../shared/interfaces/theme"
 
 @Component({
   selector: 'app-theme',

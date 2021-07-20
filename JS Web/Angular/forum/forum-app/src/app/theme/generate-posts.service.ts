@@ -1,7 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ITheme } from './interfaces/theme';
+import { ITheme } from '../shared/interfaces/theme';
 
 
 @Injectable()

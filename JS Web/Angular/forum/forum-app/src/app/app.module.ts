@@ -3,31 +3,34 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { ThemeComponent } from './theme/theme.component';
 import { AsideComponent } from './aside/aside.component';
 
-import { AuthorizationService } from "./authorization.service";
-import { GeneratePostsService } from "./generate-posts.service";
 import { GenerateRecentPostsService } from "./generate-recent-posts.service"
+
+import { HeaderComponent } from './core/header/header.component';
+import { FooterComponent } from './core/footer/footer.component';
+import { CoreModule } from './core/core.module';
+import { AppRoutingModule } from './app-routing.module';
+import { ThemeModule } from './theme/theme.module';
+import { HomeComponent } from './home/home.component';
+import { AuthorizationModule } from './authorization/authorization.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    ThemeComponent,
     AsideComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    CoreModule,
+    ThemeModule,
+    AuthorizationModule,
+    AppRoutingModule
   ],
   providers: [
-    AuthorizationService,
-    GeneratePostsService,
     GenerateRecentPostsService,
   ],
   bootstrap: [

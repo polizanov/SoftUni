@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IPosts } from './interfaces/posts';
+import { IPosts } from './shared/interfaces/posts';
 
 @Injectable()
 export class GenerateRecentPostsService {

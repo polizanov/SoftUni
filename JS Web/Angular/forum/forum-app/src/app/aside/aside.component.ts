@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { GenerateRecentPostsService } from "../generate-recent-posts.service";
-import { IPosts } from "../interfaces/posts"
+import { IPosts } from "../shared/interfaces/posts"
 
 
 @Component({
