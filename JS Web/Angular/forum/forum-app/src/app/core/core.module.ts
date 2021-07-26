@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AuthorizationService } from '../authorization/authorization.service';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -12,7 +13,8 @@ import { AuthorizationService } from '../authorization/authorization.service';
     FooterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   providers: [
     AuthorizationService,
