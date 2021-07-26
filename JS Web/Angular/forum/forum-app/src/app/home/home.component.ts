@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorizationService } from '../authorization/authorization.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent  {
 
-  constructor() { }
+  constructor(
+    private authService: AuthorizationService
+  ) { }
 
-  ngOnInit(): void {
+  get isLogged(): boolean {
+    return !!this.authService.token;
   }
 
 }

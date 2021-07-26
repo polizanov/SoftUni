@@ -1,15 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthorizationService } from "../authorization.service"
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
-  constructor() { }
+  constructor(
+    public authService: AuthorizationService,
+    private router: Router,
+    ) { }
 
-  ngOnInit(): void {
+  login(): void {
+    this.authService.setToken();
+    this.router.navigate(["/"])
   }
 
 }

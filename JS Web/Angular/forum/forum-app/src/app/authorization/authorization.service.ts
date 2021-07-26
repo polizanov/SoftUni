@@ -9,6 +9,10 @@ export class AuthorizationService {
     localStorage.setItem("AUTH-TOKEN", "just-logged")
   }
 
+  get token() : any {
+    return localStorage.getItem("AUTH-TOKEN");
+  }
+
   removeToken(): void {
     localStorage.clear()
   }

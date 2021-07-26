@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
-import {AuthorizationService} from '../../authorization/authorization.service'
+import { AuthorizationService } from '../../authorization/authorization.service'
 
 @Component({
   selector: 'app-header',
@@ -8,16 +9,17 @@ import {AuthorizationService} from '../../authorization/authorization.service'
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  isLogged = false;
-  constructor(public authService: AuthorizationService) { }
+  constructor(
+    public authService: AuthorizationService,
+    private router: Router
+    ) { }
 
-  login(): void {
-    this.isLogged = true;
-    this.authService.setToken();
+  isLogged(): boolean {
+    return !!this.authService.token
   }
 
   logout(): void {
-    this.isLogged = false;
     this.authService.removeToken();
+    this.router.navigate(["/"]);
   }
 }

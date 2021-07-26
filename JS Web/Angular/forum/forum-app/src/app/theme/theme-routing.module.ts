@@ -16,9 +16,13 @@ const routes: Routes = [
     },
     {
         path: 'details',
-        component: DetailsComponent
+        children: [{
+            path: ':themeId',
+            component: DetailsComponent
+        }]
+       
     }
-]
+];
 
 @NgModule({
     imports: [RouterModule.forChild(routes)],

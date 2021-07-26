@@ -14,10 +14,10 @@ import { ThemeWrapperComponent } from './theme-wrapper/theme-wrapper.component';
 @NgModule({
   declarations: [
     ThemeComponent,
-    AsideComponent,
     NewThemeComponent,
-    DetailsComponent,
     ThemeWrapperComponent,
+    AsideComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,
