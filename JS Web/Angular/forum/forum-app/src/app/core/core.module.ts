@@ -5,6 +5,8 @@ import { FooterComponent } from './footer/footer.component';
 import { AuthorizationService } from '../authorization/authorization.service';
 import { RouterModule } from '@angular/router';
 
+import { AccessGuard } from "./guards/acces.guard"
+
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { RouterModule } from '@angular/router';
   ],
   providers: [
     AuthorizationService,
+    AccessGuard
   ],
   exports: [
     HeaderComponent,

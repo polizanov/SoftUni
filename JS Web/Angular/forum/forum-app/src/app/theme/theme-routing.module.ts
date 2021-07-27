@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccessGuard } from '../core/guards/acces.guard';
 import { DetailsComponent } from './details/details.component';
 import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ThemeComponent } from './theme.component';
@@ -12,7 +13,12 @@ const routes: Routes = [
     },
     {
         path: 'new-theme',
-        component: NewThemeComponent
+        component: NewThemeComponent,
+        canActivate: [AccessGuard],
+        data: {
+            isAuth: true,
+            redirectUrl: "/login"
+        }
     },
     {
         path: 'details',
