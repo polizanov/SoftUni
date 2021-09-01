@@ -19,7 +19,6 @@ import { AccessGuard } from "./guards/acces.guard"
     RouterModule
   ],
   providers: [
-    AuthorizationService,
     AccessGuard
   ],
   exports: [

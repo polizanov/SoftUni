@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthRoutingModule } from './authorization-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
+import { AuthorizationService } from './authorization.service';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,9 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     AuthRoutingModule,
     RouterModule
+  ],
+  providers: [
+    AuthorizationService,
   ]
 })
 export class AuthorizationModule { }
