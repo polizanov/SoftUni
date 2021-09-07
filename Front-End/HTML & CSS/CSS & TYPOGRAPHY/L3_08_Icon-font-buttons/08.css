@@ -1,0 +1,17 @@
+@import url("https://use.fontawesome.com/releases/v5.15.4/css/all.css");
+
+a {
+    outline: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 2px;
+    padding: 3px 6px;
+}
+
+#click {
+    background: green; 
+}
+
+#email {
+    background: orange;
+}
