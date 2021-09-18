@@ -1,0 +1,22 @@
+body {
+    font-family: system-ui;
+    color: rgb(51, 51, 51);
+    background-color: rgb(238, 238, 238);
+}
+
+article {
+    width: 600px;
+}
+
+aside {
+    width: 200px;
+}
+
+img {
+    height: 300px;
+    width: 450px;
+}
+
+article, aside {
+    display: table-cell;;
+}
