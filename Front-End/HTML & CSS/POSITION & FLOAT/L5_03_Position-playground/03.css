@@ -1,0 +1,43 @@
+@import url("https://use.fontawesome.com/releases/v5.15.4/css/all.css");
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 200px;
+    max-height: 500px;
+    top: 10px;
+}
+
+.viewport {
+    height: 100vh;
+    position: relative
+}
+
+.blue {
+    background: rgb(24,91,157);
+    background: linear-gradient(90deg, rgba(24,91,157,1) 0%, rgba(45,146,159,1) 35%, rgba(66,205,161,1) 100%);
+}
+
+.red {
+    background: rgb(168,50,121);
+    background: linear-gradient(90deg, rgba(168,50,121,1) 0%, rgba(188,89,68,1) 35%, rgba(210,130,19,1) 100%);
+}
+
+.card {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(57%, -58%);
+}
+
+i {
+    color: white;
+    position: relative;
+    right: 26px;
+    bottom: 10px;
+}
+
