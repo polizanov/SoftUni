@@ -1,0 +1,47 @@
+html {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+div, section {
+    display: flex;
+    align-items: center;
+}
+
+div {
+    max-width: 65vh;
+}
+
+span {
+    border: 1px solid black;
+    padding: 50px;
+    text-align: center;
+}
+
+.notes {
+    flex-direction: column;
+}
+
+.week {
+    display: inline-flex;
+    align-items: stretch;
+}
+
+.work-week {
+    flex-grow: 1;
+}
+
+.header span {
+    flex-grow: 1;
+}
+
+.reminders {
+    display: flex;
+}
+
+.reminders span {
+    align-self: stretch;
+}
