@@ -8,16 +8,22 @@ html {
 
 div, section {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
 }
 
 div {
-    max-width: 65vh;
+    max-width: 65vw;
+}
+
+.container {
+    flex-direction: row;
 }
 
 span {
     border: 1px solid black;
-    padding: 50px;
+    padding: 20px;
+    flex-grow: 1;
+    min-height: 15vh;
     text-align: center;
 }
 
@@ -25,23 +31,12 @@ span {
     flex-direction: column;
 }
 
-.week {
-    display: inline-flex;
-    align-items: stretch;
+section .header {
+    flex-basis: 100%;
+    font-size: 25px;
 }
 
-.work-week {
-    flex-grow: 1;
+.notes span {
+    font-size: 25px;
 }
 
-.header span {
-    flex-grow: 1;
-}
-
-.reminders {
-    display: flex;
-}
-
-.reminders span {
-    align-self: stretch;
-}

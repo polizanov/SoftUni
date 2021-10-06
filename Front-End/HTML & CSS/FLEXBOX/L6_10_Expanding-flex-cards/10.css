@@ -1,0 +1,36 @@
+body {
+    background: rgb(238, 238, 238);
+    align-items: center;
+    display: flex;
+}
+
+.container {
+    display: flex;
+    max-width: 70vw;
+    margin: 50px auto;
+}
+
+ul {
+    display: flex;
+    align-items: stretch;
+}
+
+ul li {
+    flex-basis: 20%;
+    list-style: none;
+    margin: 10px;
+    display: flex;
+}
+
+.large {
+    flex-basis: 100%;
+}
+
+ul li img {
+    max-width: 100%;
+    flex-grow: 1;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 2px 3px 15px 3px rgba(0,0,0,0.68);
+}
+

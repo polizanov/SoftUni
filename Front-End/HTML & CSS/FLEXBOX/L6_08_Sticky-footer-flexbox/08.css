@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background: rgb(238, 238, 238);
+    height: 100vh;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+header {
+    border-bottom: 2px solid black;
+}
+
+header h1 {
+    text-transform: uppercase;
+}
+
+footer {
+    color: rgb(255, 255, 255);
+    background: rgb(102, 102, 102);
+}
+
+h1, h2, p {
+    padding: 0 20px;
+}

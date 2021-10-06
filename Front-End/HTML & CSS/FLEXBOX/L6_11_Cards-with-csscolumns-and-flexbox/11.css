@@ -1,0 +1,46 @@
+body {
+    background: rgb(238, 238, 238);
+    display: flex;
+    flex-direction: column;
+    max-width: 40vw;
+    margin: 50px auto;
+}
+
+.cards-layout {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.cards-layout h2 {
+    flex-basis: 100%;
+}
+
+.masonry,
+.flex {
+    display: flex;
+    flex-direction: column;
+    max-width: 20vh;
+    border: 1px solid gray;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.strech {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.masonry p,
+.flex p {
+    padding: 5px;
+}
+
+
+.border {
+    border-top: 1px solid gray;
+    align-self: flex-end;
+}
