@@ -1,0 +1,52 @@
+@import url("https://use.fontawesome.com/releases/v5.15.4/css/all.css");
+
+form {
+    margin: 50px auto;
+    background-color: #f8f8f8;
+    width: 40vw;
+}
+
+p, article, button {
+    margin: 20px;
+}
+
+
+.username-field {
+    margin-top: 20px;
+}
+
+.password-field {
+    margin-top: 20px;
+}
+
+article label {
+    font-weight: bold;
+}
+
+button {
+    margin-top: 20px;
+    padding: 5px 10px;
+    background-color: #2b2b2b;
+    color: white;
+    border-radius: 3px;
+    border-width: 0px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+fieldset {
+    position: relative;
+    width: 25vw;
+}
+
+i {
+    position: absolute;
+    left: 90px
+}
+
+@media all and (max-width: 800px){
+  article {
+      display: flex;
+      flex-direction: column;
+  }
+}
