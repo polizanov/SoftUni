@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Montserrat:wght@300&display=swap');
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.wrap {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.menu {
+    background-color: rgb(253, 253, 253);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.logo {
+    height: 30px;
+    width: 90px;
+}
+
+.logo img {
+    height: 100%;
+    width: 100%
+}
+
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+}
+
+.nav-menu li {
+    margin: 5px;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    color: #54546d;
+}
+
+.header-content-wrap {
+    padding: 0px;
+    margin: 0px;
+    background: #54546d;
+    position: relative;
+    height: 300px;
+}
+
+.bill-header {
+    text-align: center;
+    padding-top: 55px;
+    padding-bottom: 20px;
+    color: white;
+    margin: 0px;
+}
+
+.calculator {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    left: -40px;
+    top: 50px;
+}
+
+.calculator img {
+    width: 100%;
+    height: 100%;
+}
+
+.content-elements {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.content-element {
+    width: 400px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    bottom: -50px;
+    box-shadow: 2px 2px 14px 4px rgba(0,0,0,0.32);
+}
+
+.content-element article h2,
+.content-element article p {
+    text-align: center;
+    color: #54546d;
+}
+
+.content-disign {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 20px 0px 20px;
+}
+
+.content-disign button {
+    align-content: center;
+    align-self: center;
+    cursor: pointer;
+}
+
+.content-disign h2 {
+    margin-bottom: 0px;
+}
+
+.content-disign p {
+    margin-top: 0px;
+}
+
+.content-disign button {
+    border-radius: 50px;
+    border-width: 0px;
+    padding: 10px 20px;
+    background-color: #9a5dc6;
+    color: white;
+    margin-top: 50px;
+}
+
+.pricing-disign {
+    background: rgb(3,154,60);
+    background: linear-gradient(90deg, rgba(3,154,60,1) 0%, rgba(38,184,94,1) 35%, rgba(75,214,128,1) 100%);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.content-fund {
+    padding: 20px 20px 0px 20px;
+}
+
+.pricing-fund {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: rgb(76,107,136);
+    background: linear-gradient(90deg, rgba(76,107,136,1) 0%, rgba(87,131,171,1) 35%, rgba(97,154,206,1) 100%);
+    display: flex;
+    justify-content: space-around;
+}
+
+#white {
+    color: white;
+}
+
+.pricing-prof {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: rgb(75,56,166);
+    background: linear-gradient(90deg, rgba(75,56,166,1) 0%, rgba(109,92,197,1) 35%, rgba(140,125,225,1) 100%);
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.main {
+    margin-top: 240px;
+}
+
+
+.info {
+    max-width: 1000px;
+    margin: 0px auto;
+}
+
+.info article h2,
+.info article p {
+    color: #54546d;
+}
+
+.info ul {
+    list-style: none;
+}
+
+.paragraph-content {
+    display: inline-flex;
+    width: 600px;
+}
+
+.icon-wrap {
+    padding-top: 20px;
+    margin-left: 40px;
+}
+
+.dark, .light {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.dark {
+    background-color: #e6e6e6;
+}
+
+.light {
+    background-color: #f8f8f8;
+}
+
+
+.postbank-info {
+    display: flex;
+}
+
+.postbank-content {
+    flex-grow: 2;
+}
+
+.postbank-content h2,
+.postbank-content p {
+    color: #54546d;
+}
+
+.postbank-image {
+    flex-grow: 1;
+}
+
+.postbank-image img {
+    padding-top: 70px;
+}
+
+footer {
+    margin-top: 100px;
+    padding: 5px;
+    background-color: #54546d;
+}
+
+footer p {
+    color: #888197;
+    text-align: center;
+}
