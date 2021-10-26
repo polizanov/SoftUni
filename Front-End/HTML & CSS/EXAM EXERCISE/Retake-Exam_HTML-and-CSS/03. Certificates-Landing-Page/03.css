@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,300&family=Montserrat:wght@300;400&display=swap');
+
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.wrap {
+    max-width: 90vw;
+    margin: 0px auto;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: -1px 5px 13px 1px rgba(0,0,0,0.10);
+    padding: 0 15px;
+}
+
+.logo-wrap {
+    max-width: 90px;
+    max-height: 30px;
+}
+
+.logo-wrap img {
+    width: 100%;
+    height: 100%;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    margin: 0px;
+}
+
+.menu li {
+    padding: 20px;
+    border-top: 4px solid white;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #a7adb6;
+}
+
+#blue-border {
+    border-top: 4px solid #3ca8f8;
+}
+
+#circle {
+    padding: 5px;
+    border-radius: 50px;
+    height: 20px;
+    margin-top: 16px;
+    background-color: #3ca8f8;
+    display: flex;
+    align-items: center;
+}
+
+#circle a {
+    color: white;
+}
+
+.header-wrap {
+    height: 360px;
+    width: 100%;
+    background-image: url("./images/hero-certificates.jpg");
+    background-color: rgba(255, 255, 255, 0.7);
+    background-image: linear-gradient(
+      rgba(255, 255, 255, 0.900), 
+      rgba(255, 255, 255, 0.900)
+    ),
+    url('./images/hero-certificates.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-content-wrap {
+    max-width: 75vw;
+    margin: 4px auto 20px auto;
+    padding-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    max-width: 50vw;
+    border-radius: 8px;
+    background-color: #29394b;
+    box-shadow: -1px 5px 13px 1px rgba(0,0,0,0.40);
+    padding: 0 20px;
+}
+
+.content h3,
+.content p {
+    color: white;
+}
+
+
+.certificates {
+   
+    display: flex;
+    align-items: flex-end;
+}
+
+.light-sertificate {
+    height: 180px;
+    width: 126px;
+}
+
+.dark-sertificate {
+    height: 210px;
+    width: 146px;
+}
+
+.bottom {
+    margin-left: 177px;
+    color: #29394b;
+}
+
+

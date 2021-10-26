@@ -1,0 +1,85 @@
+@import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,300&family=Montserrat:wght@300;400&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+h2, h5 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.wrap {
+    max-width: 80vw;
+    margin: 50px auto;
+    display: flex;
+}
+
+.info {
+    padding: 10px;
+    padding-right: 35px;
+    margin-right: 25px;
+    flex-basis: 60;
+    background-color: #e3f3fd;
+    border-radius: 10px;
+}
+
+.info h2 {
+    color: #627180;
+    margin-left: 35px;
+}
+
+.info ul {
+    list-style: none;
+}
+
+.info ul li {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.fa-check {
+    color: #41a8f8;
+    margin-right: 20px;
+}
+
+.price {
+    flex-grow: 1;
+    padding: 10px;
+    margin-left: 25px;
+    border-radius: 10px;
+    border: 5px solid #41a8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.price h2 span {
+    color: #41a8f8;
+    font-size: 60px;
+}
+
+.price h2 {
+    padding-top: 40px;
+    text-align: center;
+    color: #627180;
+}
+
+.price h5 {
+    text-align: center;
+    color: #627180;
+}
+
+.price button {
+    border-radius: 5px;
+    color: white;
+    background-color: #41a8f8;
+    padding: 10px 40px;
+    border-style: none;
+    margin-top: 20px;
+}
+
+
