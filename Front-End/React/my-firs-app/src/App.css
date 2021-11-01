@@ -1,0 +1,9 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.wrap {
+  max-width: 1000px;
+  margin: 0px auto;
+}
